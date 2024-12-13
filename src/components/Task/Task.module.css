@@ -7,6 +7,16 @@
     border-bottom: 1px solid var(--grey);
 }
 
+.notice{
+    opacity: 0;
+    margin-left: auto;
+}
+
+.task:hover .notice{
+    opacity: 1;
+    pointer-events: all;
+}
+
 .text{
     font-size: 16px;
     font-weight: 400;
@@ -17,7 +27,7 @@
     min-width: 24px;
     height: 24px;
     border-radius: 50%;
-    border: 1px solid var(--primary);
+    border: 1px solid var(--text-lighten);
     cursor: pointer;
     background: var(--white);
     position: relative;
@@ -39,6 +49,10 @@
 .completed .text {
     color: var(--text-lighten);
     text-decoration: line-through;
+}
+
+.completed .mark{
+    border: 1px solid var(--primary);
 }
 
 .completed .mark svg path{

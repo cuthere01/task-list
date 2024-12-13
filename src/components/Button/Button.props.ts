@@ -7,4 +7,5 @@ export interface ButtonProps
     > {
     size?: "s" | "m" | "l";
     disabled?: boolean;
+    notice?: boolean;
 }

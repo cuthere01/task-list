@@ -5,4 +5,5 @@ export interface TaskProps
     extends ITask,
         DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     onToggle: () => void;
+    onDelete: () => void
 }

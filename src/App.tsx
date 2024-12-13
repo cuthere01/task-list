@@ -36,6 +36,10 @@ function App(): JSX.Element {
         ]);
     };
 
+    const deleteTask = (id: string) => {
+        setTasks(tasks.filter((task) => task._id !== id));
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
@@ -43,6 +47,7 @@ function App(): JSX.Element {
                     className={cn(styles.box, styles.list)}
                     tasks={filteredTasks}
                     onToggleTaskStatus={updateTaskStatus}
+                    onDeleteTask={deleteTask}
                 />
                 <Filter
                     className={cn(styles.box, styles.filter)}
