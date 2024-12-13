@@ -1,0 +1,54 @@
+.task{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--grey);
+}
+
+.text{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.mark{
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--primary);
+    cursor: pointer;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.mark svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mark svg path{
+    stroke: transparent;
+}
+
+.completed .text {
+    color: var(--text-lighten);
+    text-decoration: line-through;
+}
+
+.completed .mark svg path{
+    stroke: var(--primary)
+}
+
+.active{
+    background: var(--white);
+}
+
+.active .text {
+    color: var(--text);
+}

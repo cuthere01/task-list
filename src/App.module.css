@@ -1,0 +1,65 @@
+.wrapper {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    max-height: 100dvh;
+    padding: 40px 0;
+    grid-template: "list form" 1fr "list filter" auto / 1fr auto;
+}
+
+.list {
+    grid-area: list;
+}
+
+.filter {
+    grid-area: filter;
+}
+
+.form {
+    grid-area: form;
+}
+
+.box {
+    padding: 20px;
+    border-radius: var(--radius-large);
+    background: var(--white);
+    overflow-y: auto;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (width >= 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (width >= 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (width >= 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (width >= 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media screen and (width >= 1540px) {
+    .container {
+        max-width: 1400px;
+    }
+}
