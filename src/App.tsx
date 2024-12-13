@@ -9,7 +9,7 @@ import { nanoid } from 'nanoid';
 
 function App(): JSX.Element {
     const [tasks, setTasks] = useState<ITask[]>([
-        { _id: nanoid(), text: "Сделать задание", completed: false },
+        { _id: nanoid(), text: "Сделать тестовое задание", completed: false },
         { _id: nanoid(), text: "Купить продукты", completed: true },
     ]);
 
@@ -46,6 +46,7 @@ function App(): JSX.Element {
                 <List
                     className={cn(styles.box, styles.list)}
                     tasks={filteredTasks}
+                    currentFilter={filter}
                     onToggleTaskStatus={updateTaskStatus}
                     onDeleteTask={deleteTask}
                 />

@@ -6,6 +6,7 @@ import cn from 'classnames';
 
 export const List = ({
     tasks,
+    currentFilter,
     className,
     onToggleTaskStatus,
     onDeleteTask,
@@ -24,7 +25,17 @@ export const List = ({
                     ></Task>
                 ))}
             </div>
-            {tasks.length > 0 && <p className={styles.info}>{tasks.length} task{tasks.length > 1 && 's'} left</p>}
+            {tasks.length > 0 ? (
+                <p className={styles.info}>
+                    {tasks.length} {currentFilter !== "all" && currentFilter}{" "}
+                    task
+                    {tasks.length > 1 && "s"}
+                </p>
+            ) : (
+                <div className={styles.empty}>
+                    No {currentFilter !== "all" && currentFilter} tasks yet
+                </div>
+            )}
         </div>
     );
 };

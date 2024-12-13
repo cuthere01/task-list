@@ -10,15 +10,33 @@ export const Form = ({
     ...props
 }: FormProps): JSX.Element => {
     const [text, setText] = useState<string>("");
+    const [error, setError] = useState<string>("");
+
+    const validation = (text: string): boolean => {
+        if (text.trim().length < 1) {
+            setText("");
+            setError("Текст не должен быть пустым");
+            return false;
+        } else if (text.trim().length > 100) {
+            setError("Текст не должен превышать 100 символов");
+            return false;
+        }
+        setError("");
+        return true;
+    };
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        validation(e.target.value);
         setText(e.target.value);
     };
 
     const submitAction = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        addText(text.trim());
-        setText("");
+
+        if (validation(text)) {
+            addText(text.trim());
+            setText("")
+        }
     };
 
     return (
@@ -27,14 +45,24 @@ export const Form = ({
             className={cn(styles.wrapper, className)}
             {...props}
         >
-            <input
-                type="text"
-                className={styles.input}
-                placeholder="text here..."
-                onChange={onChange}
-                value={text}
-            />
-            <Button size="l" type="submit">
+            <div className={styles.inputWrapper}>
+                <input
+                    type="text"
+                    className={cn(styles.input, {
+                        [styles.error]: error,
+                    })}
+                    placeholder="text here..."
+                    onChange={onChange}
+                    value={text}
+                />
+                {error && <span className={styles.errorText}>{error}</span>}
+            </div>
+
+            <Button
+                size="l"
+                type="submit"
+                disabled={error ? true : false}
+            >
                 Add task
             </Button>
         </form>

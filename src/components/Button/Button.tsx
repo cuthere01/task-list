@@ -5,6 +5,7 @@ import { ButtonProps } from "./Button.props";
 export const Button = ({
     size = "m",
     notice,
+    disabled,
     children,
     className,
     ...props
@@ -13,6 +14,7 @@ export const Button = ({
         <button
             className={cn(styles.button, className, styles[size], {
                 [styles.notice]: notice,
+                [styles.disabled]: disabled
             })}
             {...props}
         >
