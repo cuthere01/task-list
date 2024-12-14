@@ -32,7 +32,7 @@ export const List = ({
                     {tasks.length > 1 && "s"}
                 </p>
             ) : (
-                <div className={styles.empty}>
+                <div className={styles.empty} data-testid="empty-message">
                     No {currentFilter !== "all" && currentFilter} tasks yet
                 </div>
             )}

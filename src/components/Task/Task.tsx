@@ -1,7 +1,6 @@
 import cn from "classnames";
 import styles from "./Task.module.css";
 import { TaskProps } from "./Task.props";
-import MarkIcon from "./mark.svg?react";
 import { Button } from '../Button/Button';
 
 export const Task = ({
@@ -20,8 +19,26 @@ export const Task = ({
             })}
             {...props}
         >
-            <button className={styles.mark} onClick={onToggle}>
-                <MarkIcon />
+            <button
+                className={styles.mark}
+                onClick={onToggle}
+                data-testid="mark"
+            >
+                <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M16.8 8.3999L9.64043 15.5999L7 13"
+                        stroke="black"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
+                </svg>
             </button>
             <p className={styles.text}>{text}</p>
             <Button
