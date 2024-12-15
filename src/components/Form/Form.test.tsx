@@ -19,7 +19,6 @@ describe("Форма", () => {
     it("должна обновлять значение при вводе текста", () => {
         renderTask();
 
-        //const input = screen.getByPlaceholderText("text here...");
         fireEvent.change(input(), { target: { value: "Тест" } });
         expect(input()).toHaveValue("Тест");
     });
